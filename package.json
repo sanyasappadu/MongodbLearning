@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon curd.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve-json": "json-server --watch db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3",
+    "mongodb": "^6.1.0",
+    "mongoose": "^7.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
