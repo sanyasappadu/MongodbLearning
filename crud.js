@@ -40,8 +40,11 @@ async function main() {
         // ]);
         // await findOneListingByName(client, "LG");
         // await findListingswithYearPriceRating(client, {name:{$eq:"LG"},bestFor:{$eq:"HOME"}});
-        // await updateListingByName(client, "LG", {rating:8})
-        await upsetfun(client, "rrr", {name:"bpl", price:50000, rating:6})
+        // await updateListingByName(client, "SAMSUNG", {rating:9})
+        // await upsetfun(client, "bpl", { name: "bpl", price: 57800, rating: 4 })
+        // await updateAllListing(ToHaveThePropartyType(client);
+        // await deleteListingByName(client,"SAMSUNG")
+        await deleteManyItems(client,4)
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
     } finally {
@@ -68,19 +71,34 @@ async function findOneListingByName(client, nameOfListing) {
         console.log(`No listings found with thw name '${nameOfListing}'`)
     }
 }
-async function updateListingByName(client,nameOFListing,updateedListing){
-    const result = await client.db("brands").collection("tvs").updateOne({name:nameOFListing},{$set:updateedListing});
+async function updateListingByName(client, nameOFListing, updateedListing) {
+    const result = await client.db("brands").collection("tvs").updateOne({ name: nameOFListing }, { $set: updateedListing });
     console.log(`${result} document(s) matched the quary`);
 
 }
-async function upsetfun(client,nameOFListing,updateedListing){
-    const result = await client.db("brands").collection("tvs").updateOne({name:nameOFListing},{$set:updateedListing},{upser:true});
+async function upsetfun(client, nameOFListing, updateedListing) {
+    const result = await client.db("brands").collection("tvs").updateOne({ name: nameOFListing }, { $set: updateedListing }, { upsert: true });
     console.log(`${result.matchedCount} document(s) matched the query criteria`);
-    if(result.upsertedCount>0){
+    if (result.upsertedCount > 0) {
         console.log(`One document was inserted with the id ${result.upsertedId}`);
-    }else{
+    } else {
         console.log(`${result.modifiedCount} document(s) was/were updated`)
     }
+}
+async function updateAllListingToHaveThePropartyType(client) {
+    const result = await client.db("brands").collection("tvs").updateMany({ propartyType:{$exists:false}}, { $set:{propartyType:"unknown"} });
+    console.log(`${result.matchedCount} document(s) matched the quary`);
+    console.log(`${result.modifiedCount} document(s) was/were updated`);
+
+
+}
+async function deleteListingByName(client, nameOfListing){
+    const result = await client.db("brands").collection("tvs").deleteOne({name:nameOfListing})
+    console.log(`${result.deletedCount} documents was deleted`)
+}
+async function deleteManyItems(client, rating){
+    const result= await client.db("brands").collection("tvs").deleteMany({"rating":{$lt:rating}})
+    console.log(`${result.deletedCount} documents was deleted`)
 }
 // async function findListingswithYearPriceRating(client, filter) {
 //     const result = client.db("brands").collection("tvs").find(filter);
@@ -99,3 +117,12 @@ async function upsetfun(client,nameOFListing,updateedListing){
 //         console.log(`-${db.name}`)
 //     })
 // }
+
+
+
+
+
+// {"_id":{"$oid":"650c852b53e94be42386421b"},"name":"PANASONIC","year":{"$numberInt":"2009"},"price":{"$numberInt":"10000"},"bestFor":"HOME AND SHOPS","rating":{"$numberInt":"3"},"propartyType":"unknown"}
+// {"_id":{"$oid":"650c852b53e94be42386421a"},"name":"SONY","year":{"$numberInt":"2001"},"price":{"$numberInt":"99000"},"bestFor":"HOME AND OFFICE","rating":{"$numberInt":"5"},"propartyType":"unknown"}
+// {"_id":{"$oid":"650c826ddb0e19ff61eb24c6"},"name":"VU","year":{"$numberInt":"2005"},"price":{"$numberInt":"9000"},"bestFor":"HOME","rating":{"$numberInt":"3"},"propartyType":"unknown"}
+// {"_id":{"$oid":"650c826ddb0e19ff61eb24c4"},"name":"LG","year":{"$numberInt":"2003"},"price":{"$numberInt":"18000"},"bestFor":"HOME","rating":{"$numberInt":"9"},"propartyType":"unknown"}
