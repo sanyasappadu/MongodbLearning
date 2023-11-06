@@ -1,0 +1,20 @@
+https://www.myntra.com/headwear/hrx-by-hrithik-roshan/hrx-by-hrithik-roshan-men-maroon-brand-logo-lifestyle-cap/2178521/buy
+
+database commends for local db 
+mongosh  (you can use at any directory)
+
+show dbs
+
+use test
+
+show collections
+
+db.dropDatabase()
+//show dbs
+
+exit
+
+test> db.naidu.find()
+test> db.users.find()
+admin> db.movies.insert({name:"arjun reddy", year:2018})
+admin> db.movies.find()
