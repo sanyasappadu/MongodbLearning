@@ -1,0 +1,111 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "electonics",
+      "price": 30000,
+      "description": "electonic goods",
+      "discount": {
+        "type": "shipping"
+      }
+    },
+    {
+      "id": 2,
+      "title": "clothes",
+      "price": 30000,
+      "description": "electronic goods",
+      "discount": {
+        "type": "shipping"
+      }
+    },
+    {
+      "id": 3,
+      "title": "phones",
+      "price": 30000,
+      "description": "electronic goods",
+      "discount": {
+        "type": "prepaid"
+      }
+    },
+    {
+      "id": 4,
+      "title": "chargers",
+      "price": 340,
+      "description": "electronic goods",
+      "discount": {
+        "type": "postpaid"
+      }
+    },
+    {
+      "id": 5,
+      "title": "pens",
+      "price": 40,
+      "description": "electronic goods",
+      "discount": {
+        "type": "postpaid"
+      }
+    },
+    {
+      "id": 6,
+      "title": "tvs",
+      "price": 4444,
+      "description": "electronic goods",
+      "discount": {
+        "type": "postpaid"
+      }
+    },
+    {
+      "id": 7,
+      "title": "books",
+      "price": 340,
+      "description": "electronic goods",
+      "discount": {
+        "type": "postpaid"
+      }
+    },
+    {
+      "id": 8,
+      "title": "wood-products",
+      "price": 2230,
+      "description": "wood goods",
+      "discount": {
+        "type": "shipping"
+      }
+    },
+    {
+      "id": 9,
+      "title": "wood-products",
+      "price": 1000,
+      "description": "goods",
+      "discount": {
+        "type": "shipping-onlone"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 2,
+      "description": "good",
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "rating": 3,
+      "description": "average",
+      "productId": 2
+    },
+    {
+      "id": 3,
+      "rating": 4,
+      "description": "better",
+      "productId": 3
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "description": "excelent",
+      "productId": 5
+    }
+  ]
+}

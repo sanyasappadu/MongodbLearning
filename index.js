@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost/admin")
+
 const movieSchema = new mongoose.Schema({ name: String, age: Number });
 const Movie = mongoose.model('Movie', movieSchema);
 const rrr = new Movie({ name: 'rrr', age: 34 });
+
 // const { MongoClient } = require('mongodb');
 // const uri = ("mongodb://localhost")
 // const dbName = 'admin'
